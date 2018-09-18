@@ -1,3 +1,3 @@
 # PassandoObjetoEntreActivity
 
-##### Passando objeto para outra activity usando lib [gson](https://github.com/google/gson)
+##### Passando um objeto para outra activity usando lib [gson](https://github.com/google/gson) e passando uma lista de objetos

@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class Main2Activity extends AppCompatActivity {
 
     @Override
@@ -19,21 +21,28 @@ public class Main2Activity extends AppCompatActivity {
         TextView idade = (TextView) findViewById(R.id.idade);
 
 
+// ------- recebendo o objeto completo ------
+//        Bundle bundle = getIntent().getExtras();
+//        String serial = (String) bundle.get("chave");
+//
+//        final Pessoa pessoa = new Gson().fromJson(serial, Pessoa.class);
+//
+//        nome.setText(""+pessoa.getNome());
+//        idade.setText(""+pessoa.getIdade());
+//    --------------------------------
 
-        Bundle bundle = getIntent().getExtras();
-        String serial = (String) bundle.get("chave");
-
-        final Pessoa pessoa = new Gson().fromJson(serial, Pessoa.class);
-
-        nome.setText(""+pessoa.getNome());
-        idade.setText(""+pessoa.getIdade());
+        Bundle extra = getIntent().getBundleExtra("extra");
+        ArrayList<Pessoa> pessoas = (ArrayList<Pessoa>) extra.getSerializable("lista");
 
 
 
+        for (Pessoa i : pessoas){
+            Log.e("Nome:","" + i.getNome());
+
+        }
 
 
-        Log.e("Nome:","" + pessoa.nome);
-        Log.e("Idade:","" + pessoa.idade);
+
 
 
     }
